@@ -185,7 +185,7 @@ def dividi(s):
     elif my_regexp.match_regexp_nocase('^s' + c() + liq() + v() + '(' + c() + ')(\\1)' + v(), s):
 #        print('L7')
 #        print(s[:5], '- +', s[5:])
-#        return s[:5] + '-' + dividi(s[5:])
+       return s[:5] + '-' + dividi(s[5:])
     
 #    elif my_regexp.match_regexp_nocase(***, s):
 #        return s[:n] + '-' + dividi(s[n:])
@@ -540,4 +540,3 @@ consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
               'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'z']
 
 #------------------------------------------------------------------------
-
