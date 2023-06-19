@@ -43,10 +43,10 @@ def split_syls(s):
     step4 = my_string.stringlist_to_string(step3, '')
     step5 = dividi(step4)
     if step5 == None:
-        print('caso 1')
+#        print('caso 1')
         return ''
     else:
-        print('caso 2')
+#        print('caso 2')
         step6 = decode_syl(step5, step2)
         return step6
 """
@@ -102,59 +102,59 @@ scialacquare
 
 def dividi(s):
 
-    print('-----------------')
-    print('s = ', s)    
+#    print('-----------------')
+#    print('s = ', s)    
     
     # eccezioni: io, criptico, feldspato
     
     if s in eccezioni:
-        print('R1')
+#        print('R1')
         return eccezioni[s]
     
     # parole intere
     
     # ''
     elif s == '':
-        print('R2a')
+#        print('R2a')
         return s
 
     # a, e, i, o, u
     elif len(s) == 0 or len(s) == 1:
-        print('R2b')
+#        print('R2b')
         return s
         
     # one syllable: al lo, il
     elif len(s) == 2:
-        print('R2c')
+#        print('R2c')
         return s
     
     elif len(s) == 3:
         
-        print('len 3')
+#        print('len 3')
     
         # est, alt
         if my_regexp.match_regexp_nocase('^' + v() + c() + c() + '$', s):
-            print('R2c1')
+#            print('R2c1')
             return s
 
         # sto
         elif my_regexp.match_regexp_nocase('^' + 's' + c() + v() + '$', s):
-            print('R2c2')
+#            print('R2c2')
             return s
 
         # tra, fra
         elif my_regexp.match_regexp_nocase('^' + c() + liq() + v() + '$', s):
-            print('R2c3')
+#            print('R2c3')
             return s
 
         # nel, don, per, doc, dop
         elif my_regexp.match_regexp_nocase('^' + c() + v() + c() + '$', s):
-            print('R2c4')
+#            print('R2c4')
             return s
 
         # che
         elif my_regexp.match_regexp_nocase('^' + c() + c() + v() + '$', s):
-            print('R2c5')
+#            print('R2c5')
             return s
         
 
@@ -164,16 +164,16 @@ def dividi(s):
     
     # (stro)
     elif my_regexp.match_regexp_nocase('^' + 's' + c() + liq() + v() + '$', s):
-        print('R3')
+#        print('R3')
         return s
         
     # "Khan"
     elif my_regexp.match_regexp_nocase('^' + c() + c() + v() + c() + '$', s):
-        print('R4')
+#        print('R4')
         return s
 	# vlad, gran, tran
     elif my_regexp.match_regexp_nocase('^' + c() + c() + v() + c() + '$', s):
-        print('R5')
+#        print('R5')
         return s
 
     # left patterns
@@ -183,9 +183,9 @@ def dividi(s):
 	# scritto, sfratto
     # scrittura, distratto, strattone, strattonare, sbroccare
     elif my_regexp.match_regexp_nocase('^s' + c() + liq() + v() + '(' + c() + ')(\\1)' + v(), s):
-        print('L7')
-        print(s[:5], '- +', s[5:])
-        return s[:5] + '-' + dividi(s[5:])
+#        print('L7')
+#        print(s[:5], '- +', s[5:])
+#        return s[:5] + '-' + dividi(s[5:])
     
 #    elif my_regexp.match_regexp_nocase(***, s):
 #        return s[:n] + '-' + dividi(s[n:])
@@ -195,35 +195,35 @@ def dividi(s):
     # strano
     # scrupolo
     elif my_regexp.match_regexp_nocase('^s' + c() + liq() + v() + c() + v(), s):
-        print('L6a')
-        print(s[:4], '- +', s[4:])
+#        print('L6a')
+#        print(s[:4], '- +', s[4:])
         return s[:4] + '-' + dividi(s[4:])
 
     # larghi, parchi
-	# narghilè
+    # narghilè
     elif my_regexp.match_regexp_nocase('^' + c() + v() + liq() + '[cg]h' + v(), s):
-        print('L6b')
-        print(s[:3], '- +', s[3:])
+#        print('L6b')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
 
 	# sgherro
     elif my_regexp.match_regexp_nocase('^' + scgh() + v() + '(' + c() + ')(\\1)' + v(), s):
-        print('L6c')
-        print(s[:5], '- +', s[5:])
+#        print('L6c')
+#        print(s[:5], '- +', s[5:])
         return s[:5] + '-' + dividi(s[5:])
 
-	# sghembo, schermo
+    # sghembo, schermo
     # scharmato
     elif my_regexp.match_regexp_nocase('^' + scgh() + v() + liq() + c(), s):
-        print('L6d')
-        print(s[:5], '- +', s[5:])
+#        print('L6d')
+#        print(s[:5], '- +', s[5:])
         return s[:5] + '-' + dividi(s[5:])
 
 	# schema, schifo
     # schifoso, schifosamente
     elif my_regexp.match_regexp_nocase('^' + scgh() + v() + c() + v(), s):
-        print('L6e')
-        print(s[:4], '- +', s[4:])
+#        print('L6e')
+#        print(s[:4], '- +', s[4:])
         return s[:4] + '-' + dividi(s[4:])
 
     # L5
@@ -231,62 +231,62 @@ def dividi(s):
 	# Sandro, contro
     # Alessandro
     elif my_regexp.match_regexp_nocase('^' + c() + v() + liq() + c() + liq(), s):
-        print('L5a')
-        print(s[:3], '- +', s[3:])
+#        print('L5a')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
 
 	# astro, astratto
     # astrakhan
     elif my_regexp.match_regexp_nocase('^' + v() + 's' + c() + liq() + v(), s):
-        print('L5b')
-        print(s[:1], '- +', s[1:])
+#        print('L5b')
+#        print(s[:1], '- +', s[1:])
         return s[:1] + '-' + dividi(s[1:])
 
     # splende
-	# splendido, splendore, strambo, sfranto
+    # splendido, splendore, strambo, sfranto
     elif my_regexp.match_regexp_nocase('^s' + c() + liq() + v() + liq(), s):
-        print('L5c')
-        print(s[:5], '- +', s[5:])
+#        print('L5c')
+#        print(s[:5], '- +', s[5:])
         return s[:5] + '-' + dividi(s[5:])
 
     # (strakhan)
     # strabello, strasexy
     elif my_regexp.match_regexp_nocase('^s' + c() + liq() + v() + c(), s):
-        print('L5d')
-        print(s[:4], '- +', s[4:])
+#        print('L5d')
+#        print(s[:4], '- +', s[4:])
         return s[:4] + '-' + dividi(s[4:])
 
 	# Alessandro
     elif my_regexp.match_regexp_nocase('^' + v() + c() + v() + '(' + c() + ')(\\1)' + v(), s):
-        print('L5e')
-        print(s[:1], '- +', s[1:])
+#        print('L5e')
+#        print(s[:1], '- +', s[1:])
         return s[:1] + '-' + dividi(s[1:])
 
     # trema, prete, prego, prima, brina, clima, drago, trave, vlado
-	# fragola, tremare, stomaco, brivido
+    # fragola, tremare, stomaco, brivido
     # pronome, preposto
     elif my_regexp.match_regexp_nocase('^[bcdfgpstvz]' + c() + v() + c() + v(), s):
-        print('L5e')
-        print(s[:3], '- +', s[3:])
+#        print('L5e')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
 
 	# brocca, stallo, grosso, dramma, grillo
     elif my_regexp.match_regexp_nocase('^' + c() + c() + v() + '(' + c() + ')(\\1)' + v(), s):
-        print('L5f')
-        print(s[:4], '- +', s[4:])
+#        print('L5f')
+#        print(s[:4], '- +', s[4:])
         return s[:4] + '-' + dividi(s[4:])
 
 	# Trento, pranzo, grande, grembo
     elif my_regexp.match_regexp_nocase('^' + c() + c() + v() + liq() + c(), s):
-        print('L5g')
-        print(s[:4], '- +', s[4:])
+#        print('L5g')
+#        print(s[:4], '- +', s[4:])
         return s[:4] + '-' + dividi(s[4:])
 
 	# carpa, pende, talpa
 	# vicenda, avvincente, avvicendamento, pendenza --> CHECK
     elif my_regexp.match_regexp_nocase('^' + c() + v() + liq() + c() + v(), s):
-        print('L5h')
-        print(s[:3], '- +', s[3:])
+#        print('L5h')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
 
     # L4
@@ -295,29 +295,29 @@ def dividi(s):
 	# (lessandro)
     # lessema, parroco, villetta
     elif my_regexp.match_regexp_nocase('^' + c() + v() + '(' + c() + ')(\\1)' + v(), s):
-        print('L4a')
-        print(s[:3], '- +', s[3:])
+#        print('L4a')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
 
 	# (tacqu)
     elif my_regexp.match_regexp_nocase('^' + c() + v() + 'cq', s):
-        print('L4b')
-        print(s[:3], '- +', s[3:])
+#        print('L4b')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
     
     # asse, esso, atto, alla, osso
     # attico
 	# apparato, atterrare, attillato
     elif my_regexp.match_regexp_nocase('^' + v() + '(' + c() + ')(\\1)', s):
-        print('L4c')
-        print(s[:2], '- +', s[2:])
+#        print('L4c')
+#        print(s[:2], '- +', s[2:])
         return s[:2] + '-' + dividi(s[2:])
 
 	# asta
     # ascoli, ascolana, aspirina
     elif my_regexp.match_regexp_nocase('^' + v() + 's' + c() + v(), s):
-        print('L4d')
-        print(s[:1], '- +', s[1:])
+#        print('L4d')
+#        print(s[:1], '- +', s[1:])
         return s[:1] + '-' + dividi(s[1:])
 
 	# ocra
@@ -325,8 +325,8 @@ def dividi(s):
     # aprire
     # griturismo
     elif my_regexp.match_regexp_nocase('^' + v() + c() + liq() + v(), s):
-        print('L4d')
-        print(s[:1], '- +', s[1:])
+#        print('L4d')
+#        print(s[:1], '- +', s[1:])
         return s[:1] + '-' + dividi(s[1:])
 
     # L3
@@ -336,28 +336,28 @@ def dividi(s):
     # ambo, onda, orlo
 	# imprudente, improbabile
     elif my_regexp.match_regexp_nocase('^' + v() + liq() + c(), s):
-        print('L3a')
-        print(s[:2], '- +', s[2:])
+#        print('L3a')
+#        print(s[:2], '- +', s[2:])
         return s[:2] + '-' + dividi(s[2:])
     
 	# (acqu)
     elif my_regexp.match_regexp_nocase('^' + v() + 'cq', s):
-        print('L3b')
-        print(s[:2], '- +', s[2:])
+#        print('L3b')
+#        print(s[:2], '- +', s[2:])
         return s[:2] + '-' + dividi(s[2:])
 
-	# Cristo, presto, crisma
+    # Cristo, presto, crisma
     # tristezza 
     elif my_regexp.match_regexp_nocase('^' + c() + liq() + v(), s):
-        print('L3c')
-        print(s[:3], '- +', s[3:])
+#        print('L3c')
+#        print(s[:3], '- +', s[3:])
         return s[:3] + '-' + dividi(s[3:])
 
 	# avido, Irina, Ugolino, obolo
 	# Aladino, Ugolino, aliscafo
     elif my_regexp.match_regexp_nocase('^' + v() + '(' + c() + v() + ')+', s):
-        print('L3d')
-        print(s[:3], '- +', s[3:])
+#        print('L3d')
+#        print(s[:3], '- +', s[3:])
         return s[:1] + '-' + dividi(s[1:])
 
     # L2
@@ -365,12 +365,12 @@ def dividi(s):
 	# casa, mela
 	# patatine, vicenda, diritto
     elif my_regexp.match_regexp_nocase('^' + c() + v(), s):
-        print('L2')
-        print(s[:2], '- +', s[2:])
+#        print('L2')
+#        print(s[:2], '- +', s[2:])
         return s[:2] + '-' + dividi(s[2:])
 
     else:
-        print('String not recognized')
+#        print('String not recognized')
         return 'GAP!'
 
 """
