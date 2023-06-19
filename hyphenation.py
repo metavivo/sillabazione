@@ -118,7 +118,7 @@ def dividi(s):
         print('R2a')
         return s
 
-    # a, e, i, o
+    # a, e, i, o, u
     elif len(s) == 0 or len(s) == 1:
         print('R2b')
         return s
