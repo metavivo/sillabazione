@@ -360,6 +360,11 @@ def dividi(s):
 #        print(s[:3], '- +', s[3:])
         return s[:1] + '-' + dividi(s[1:])
 
+	# Achille
+    elif my_regexp.match_regexp_nocase('^' + v() + '(' + 'ch' + v() + ')+', s):
+        print('L3e')
+        return s[:1] + '-' + dividi(s[1:])
+	    
     # L2
 
 	# casa, mela
