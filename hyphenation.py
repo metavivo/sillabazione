@@ -362,7 +362,7 @@ def dividi(s):
 
 	# Achille
     elif my_regexp.match_regexp_nocase('^' + v() + '(' + 'ch' + v() + ')+', s):
-        print('L3e')
+#        print('L3e')
         return s[:1] + '-' + dividi(s[1:])
 	    
     # L2
